@@ -1,0 +1,94 @@
+<div class="container">
+    <h1 class="mt-5">Usuarios</h1>
+    <div class="row justify-content-end">
+        <button class="btn btn-success btn-sm m-3" data-toggle="modal" data-target="#exampleModal">Agregar</button>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">apellido</th>
+                <th scope="col">Ocupación</th>
+                <th scope="col">Cédula</th>
+                <th scope="col">Subscripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of dataUsers">
+                <td>{{item.nombre}}</td>
+                <td>{{item.apellido}}</td>
+                <td>{{item.ocupacion}}</td>
+                <td>{{item.cedula}}</td>
+                <td *ngIf="item.subscripcion == 1">Si</td>
+                <td *ngIf="item.subscripcion == 0">No</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="userForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" formControlName="nombre" id="nombre" required>
+                        <small id="nombre" class="text-secondary">Obligatorio <span class="text-danger">*</span></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" formControlName="apellido" id="apellido" required>
+                        <small id="apellido" class="text-secondary">Obligatorio <span
+                                class="text-danger">*</span></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="ocupacion">Ocupación</label>
+                        <select class="form-control" id="ocupacion" formControlName="ocupacion" required>
+                            <option value="">Elige una opción</option>
+                            <option value="estudiante">Estudiante</option>
+                            <option value="profesor">Profesor</option>
+                            <option value="director">Director</option>
+                        </select>
+                        <small id="ocupacion" class="text-secondary">Obligatorio <span
+                                class="text-danger">*</span></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="cedula">Cédula</label>
+                        <input type="number" class="form-control" formControlName="cedula" id="cedula" required>
+                        <small id="ocupacion" class="text-secondary">Obligatorio <span
+                                class="text-danger">*</span></small>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" formControlName="terminos" id="terminos"
+                            required>
+                        <label class="form-check-label" for="terminos">
+                            Aceptar terminos y condiciones
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" formControlName="subscripcion"
+                            id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                            Desea tener una Subscripción
+                        </label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" (click)="saveUser()" [disabled]="!userForm.valid"
+                            data-dismiss="modal">Confirmar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

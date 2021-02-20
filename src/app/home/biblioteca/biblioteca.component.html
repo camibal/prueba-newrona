@@ -1,0 +1,228 @@
+<div class="container mb-5">
+  <form>
+    <div class="form-group">
+      <label for="biblioteca">Filtrar</label>
+      <select [(ngModel)]="formBiblioteca.filtroBiblioteca" class="form-control" name="biblioteca" id="biblioteca">
+        <option value="">filtrar</option>
+        <option value="todo">Todo</option>
+        <option value="animales">Animales</option>
+        <option value="carros">Carros</option>
+        <option value="personas">Personas</option>
+        <option value="ciudades">Ciudades</option>
+        <option value="deportes">Deportes</option>
+        <option value="religiones">Religiones</option>
+      </select>
+    </div>
+  </form>
+  <!-- todo -->
+  <div *ngIf="formBiblioteca.filtroBiblioteca === 'todo' || formBiblioteca.filtroBiblioteca === ''">
+    <!-- animales -->
+    <hr class="mt-5">
+    <h3>Animales</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of animales">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.nombre}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Tipo:</strong> {{item.tipo}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <hr class="mt-5">
+    <!-- carros -->
+    <h3>Carros</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of carros">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.marca}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{item.descripcion}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <hr class="mt-5">
+    <!-- presonas -->
+    <h3>Personas</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of personas">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.nombre}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>País:</strong> {{item.pais}} </li>
+            <li class="list-group-item"><strong>Profesión:</strong> {{item.profesion}} </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <hr class="mt-5">
+    <!-- ciudades -->
+    <h3>Ciudades</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of ciudades">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.nombre}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>País:</strong> {{item.pais}}</li>
+            <li class="list-group-item"><strong>Continente:</strong> {{item.continente}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <hr class="mt-5">
+    <!-- deportes -->
+    <h3>Deportes</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of deportes">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.nombre}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Tipo:</strong> {{item.tipo}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <hr class="mt-5">
+    <!-- religiones -->
+    <h3>Religiones</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of religiones">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.nombre}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{item.descripcion}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- animales -->
+  <div *ngIf="formBiblioteca.filtroBiblioteca === 'animales'">
+    <h3>Animales</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of animales">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.nombre}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Tipo:</strong> {{item.tipo}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- carros -->
+  <div *ngIf="formBiblioteca.filtroBiblioteca === 'carros'">
+    <h3>Carros</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of carros">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.marca}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{item.descripcion}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- personas -->
+  <div *ngIf="formBiblioteca.filtroBiblioteca === 'personas'">
+    <h3>Personas</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of personas">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.nombre}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>País:</strong> {{item.pais}} </li>
+            <li class="list-group-item"><strong>Profesión:</strong> {{item.profesion}} </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ciudades -->
+  <div *ngIf="formBiblioteca.filtroBiblioteca === 'ciudades'">
+    <h3>Ciudades</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of ciudades">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.nombre}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>País:</strong> {{item.pais}}</li>
+            <li class="list-group-item"><strong>Continente:</strong> {{item.continente}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- deportes -->
+  <div *ngIf="formBiblioteca.filtroBiblioteca === 'deportes'">
+    <h3>Deportes</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of deportes">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.nombre}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Tipo:</strong> {{item.tipo}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- religiones -->
+  <div *ngIf="formBiblioteca.filtroBiblioteca === 'religiones'">
+    <h3>Religiones</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of religiones">
+        <div class="card mt-4">
+          <img class="card-img-top" src="{{item.img}}" width="100%" height="261" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{item.nombre}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{item.descripcion}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
